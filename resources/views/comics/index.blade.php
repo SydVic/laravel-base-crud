@@ -5,7 +5,9 @@
 @endsection
 
 @section('main_content')
-  @foreach ($comics as $comic)
-      <h2>{{ $comic->title }}</h2>
-  @endforeach
+  <div class="comics-container d-flex">
+    @foreach ($comics as $comic)
+        @include('components.comic-card', $comic)
+    @endforeach
+  </div>
 @endsection
