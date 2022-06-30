@@ -5,7 +5,7 @@
 @endsection
 
 @section('main_content')
-  <div class="comics-container d-flex">
+  <div class="container d-flex flex-wrap">
     @foreach ($comics as $comic)
         @include('components.comic-card', $comic)
     @endforeach
