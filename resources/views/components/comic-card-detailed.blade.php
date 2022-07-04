@@ -12,6 +12,11 @@
   </ul>
   <div class="card-body">
     <a href="{{ route('comics.index') }}" class="card-link">Back to all comics</a>
-    <a href="#" class="card-link">Buy</a>
+    <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="card-link">Edit</a>
+    <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST" class="mt-3">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger">Delete!!!</button>
+    </form>
   </div>
 </div>

@@ -47,7 +47,7 @@
         <input type="text" class="form-control" id="series" name="series" value="{{ old('series') }}">
       </div>
       <div class="mb-3">
-        <label for="sale_date" class="form-label">Sale date (YY-mm-dd)</label>
+        <label for="sale_date" class="form-label">Sale date (YYYY-mm-dd)</label>
         <input type="text" class="form-control" id="sale_date" name="sale_date" value="{{ old('sale_date') }}">
       </div>
       <div class="mb-3">

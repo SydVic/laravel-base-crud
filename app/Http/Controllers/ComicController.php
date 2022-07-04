@@ -37,15 +37,7 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         // controllo i dati
-        $request->validate([
-            'title' => 'required|max:50|min:5',
-            'description' => 'required',
-            'thumb' => 'required',
-            'price' => 'required',
-            'series' => 'required|max:50',
-            'sale_date' => 'required',
-            'type' => 'required|max:50'
-        ]);
+        $request->validate($this->getValidationRules());
 
         // salva i dati nel database
         $data = $request->all();
@@ -76,7 +68,9 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic_to_edit = Comic::findOrFail($id);
+
+        return view('comics.edit', compact('comic_to_edit'));
     }
 
     /**
@@ -88,7 +82,15 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // controllo i dati
+        $request->validate($this->getValidationRules());
+
+        // salvataggio dati
+        $data = $request->all();
+        $comic_to_update = Comic::findOrFail($id);
+        $comic_to_update->update($data);
+
+        return redirect()->route('comics.show', ['comic' => $comic_to_update->id]);
     }
 
     /**
@@ -99,6 +101,26 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comic_to_destroy = Comic::findOrFail($id);
+        $comic_to_destroy->delete();
+
+        return redirect()->route('comics.index');
+    }
+    
+    /**
+     * getValidationRules
+     *
+     * @return an array with the validation rules
+     */
+    private function getValidationRules() {
+        return [
+            'title' => 'required|max:50|min:5',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required|max:50',
+            'sale_date' => 'required',
+            'type' => 'required|max:50'
+        ];
     }
 }
