@@ -46,8 +46,8 @@
         <input type="text" class="form-control" id="series" name="series" value="{{   old('series') ? old('series') : $comic_to_edit->series }}">
       </div>
       <div class="mb-3">
-        <label for="sale_date" class="form-label">Sale date (YYYY-mm-dd)</label>
-        <input type="text" class="form-control" id="sale_date" name="sale_date" value="{{   old('sale_date') ? old('sale_date') : $comic_to_edit->sale_date }}">
+        <label for="sale_date" class="form-label">Sale date</label>
+        <input type="date" class="form-control" id="sale_date" name="sale_date" value="{{   old('sale_date') ? old('sale_date') : $comic_to_edit->sale_date }}">
       </div>
       <div class="mb-3">
         <label for="type" class="form-label">Comic type</label>
