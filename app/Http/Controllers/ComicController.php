@@ -117,9 +117,9 @@ class ComicController extends Controller
             'title' => 'required|max:50|min:5',
             'description' => 'required',
             'thumb' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|max:999.99',
             'series' => 'required|max:50',
-            'sale_date' => 'required',
+            'sale_date' => 'required|date',
             'type' => 'required|max:50'
         ];
     }

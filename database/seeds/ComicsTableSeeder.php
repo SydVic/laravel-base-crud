@@ -24,7 +24,7 @@ class ComicsTableSeeder extends Seeder
             // $new_comic->sale_date = $comic['sale_date'];
             // $new_comic->type = $comic['type'];
 
-            // visto che le chiavi del comics.php in config sono uguali ai nomi delle colonne della tabella in cui le inserirai puoi fare
+            // visto che le chiavi del comics.php in config sono uguali ai nomi delle colonne della tabella in cui le inserirai puoi fare $new_comic->fill($comic);
             // ricordati che devi fare fillable nel model Comic.php
             $new_comic->fill($comic);
 
